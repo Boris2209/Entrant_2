@@ -199,7 +199,7 @@
       <string>Серия и номер аттестата</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="check_diplom">
+    <widget class="QCheckBox" name="check_gold_diplom">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -243,7 +243,7 @@
       <string>Требуется общежитие</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="check_diplom_2">
+    <widget class="QCheckBox" name="check_diplom">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -351,7 +351,7 @@
       <string>Русский язык:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_russian_2">
+    <widget class="QLabel" name="label_math">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -369,7 +369,7 @@
       <string>Математика:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_russian_3">
+    <widget class="QLabel" name="label_inform">
      <property name="geometry">
       <rect>
        <x>10</x>

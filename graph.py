@@ -3,12 +3,15 @@
 # Form implementation generated from reading ui file 'graph.ui',
 # licensing of 'graph.ui' applies.
 #
-# Created: Tue Nov 26 23:38:50 2019
+# Created: Wed Nov 27 00:09:46 2019
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
+
+
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -84,21 +87,21 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.label_diplom.setFont(font)
         self.label_diplom.setObjectName("label_diplom")
-        self.check_diplom = QtWidgets.QCheckBox(self.group_out_abitur)
-        self.check_diplom.setGeometry(QtCore.QRect(10, 310, 250, 20))
+        self.check_gold_diplom = QtWidgets.QCheckBox(self.group_out_abitur)
+        self.check_gold_diplom.setGeometry(QtCore.QRect(10, 310, 250, 20))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.check_diplom.setFont(font)
-        self.check_diplom.setObjectName("check_diplom")
+        self.check_gold_diplom.setFont(font)
+        self.check_gold_diplom.setObjectName("check_gold_diplom")
         self.check_GTO = QtWidgets.QCheckBox(self.group_out_abitur)
         self.check_GTO.setGeometry(QtCore.QRect(10, 340, 250, 20))
         self.check_GTO.setObjectName("check_GTO")
         self.check_hostel = QtWidgets.QCheckBox(self.group_out_abitur)
         self.check_hostel.setGeometry(QtCore.QRect(10, 630, 250, 20))
         self.check_hostel.setObjectName("check_hostel")
-        self.check_diplom_2 = QtWidgets.QCheckBox(self.group_out_abitur)
-        self.check_diplom_2.setGeometry(QtCore.QRect(10, 530, 250, 20))
-        self.check_diplom_2.setObjectName("check_diplom_2")
+        self.check_diplom = QtWidgets.QCheckBox(self.group_out_abitur)
+        self.check_diplom.setGeometry(QtCore.QRect(10, 530, 250, 20))
+        self.check_diplom.setObjectName("check_diplom")
         self.check_consent = QtWidgets.QCheckBox(self.group_out_abitur)
         self.check_consent.setGeometry(QtCore.QRect(10, 560, 250, 20))
         self.check_consent.setObjectName("check_consent")
@@ -129,20 +132,22 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.label_russian.setFont(font)
         self.label_russian.setObjectName("label_russian")
-        self.label_russian_2 = QtWidgets.QLabel(self.group_out_abitur)
-        self.label_russian_2.setGeometry(QtCore.QRect(10, 450, 90, 20))
+        self.label_math = QtWidgets.QLabel(self.group_out_abitur)
+        self.label_math.setGeometry(QtCore.QRect(10, 450, 90, 20))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.label_russian_2.setFont(font)
-        self.label_russian_2.setObjectName("label_russian_2")
-        self.label_russian_3 = QtWidgets.QLabel(self.group_out_abitur)
-        self.label_russian_3.setGeometry(QtCore.QRect(10, 480, 90, 20))
+        self.label_math.setFont(font)
+        self.label_math.setObjectName("label_math")
+        self.label_inform = QtWidgets.QLabel(self.group_out_abitur)
+        self.label_inform.setGeometry(QtCore.QRect(10, 480, 90, 20))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.label_russian_3.setFont(font)
-        self.label_russian_3.setObjectName("label_russian_3")
+        self.label_inform.setFont(font)
+        self.label_inform.setObjectName("label_inform")
+
         self.line_russian = QtWidgets.QLineEdit(self.group_out_abitur)
         self.line_russian.setGeometry(QtCore.QRect(110, 420, 40, 20))
+
         font = QtGui.QFont()
         font.setPointSize(10)
         self.line_russian.setFont(font)
@@ -185,15 +190,15 @@ class Ui_MainWindow(object):
         self.label_patronymic.setText(QtWidgets.QApplication.translate("MainWindow", "Отчество", None, -1))
         self.label_passport.setText(QtWidgets.QApplication.translate("MainWindow", "Серия и номер паспорта", None, -1))
         self.label_diplom.setText(QtWidgets.QApplication.translate("MainWindow", "Серия и номер аттестата", None, -1))
-        self.check_diplom.setText(QtWidgets.QApplication.translate("MainWindow", "Аттестат с отличием", None, -1))
+        self.check_gold_diplom.setText(QtWidgets.QApplication.translate("MainWindow", "Аттестат с отличием", None, -1))
         self.check_GTO.setText(QtWidgets.QApplication.translate("MainWindow", "Золотой значок ГТО", None, -1))
         self.check_hostel.setText(QtWidgets.QApplication.translate("MainWindow", "Требуется общежитие", None, -1))
-        self.check_diplom_2.setText(QtWidgets.QApplication.translate("MainWindow", "Подлинник аттестата", None, -1))
+        self.check_diplom.setText(QtWidgets.QApplication.translate("MainWindow", "Подлинник аттестата", None, -1))
         self.check_consent.setText(QtWidgets.QApplication.translate("MainWindow", "Согласие на зачисление", None, -1))
         self.label_birth.setText(QtWidgets.QApplication.translate("MainWindow", "Дата рождения", None, -1))
         self.button_append.setText(QtWidgets.QApplication.translate("MainWindow", "Добавить", None, -1))
         self.label_result_exam.setText(QtWidgets.QApplication.translate("MainWindow", "Результаты экзаменов:", None, -1))
         self.label_russian.setText(QtWidgets.QApplication.translate("MainWindow", "Русский язык:", None, -1))
-        self.label_russian_2.setText(QtWidgets.QApplication.translate("MainWindow", "Математика:", None, -1))
-        self.label_russian_3.setText(QtWidgets.QApplication.translate("MainWindow", "Информатика:", None, -1))
+        self.label_math.setText(QtWidgets.QApplication.translate("MainWindow", "Математика:", None, -1))
+        self.label_inform.setText(QtWidgets.QApplication.translate("MainWindow", "Информатика:", None, -1))
 
