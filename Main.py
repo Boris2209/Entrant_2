@@ -1,6 +1,8 @@
 import sys
 from PySide2.QtCore import *
 from PySide2.QtGui import *
+from PySide2.QtWidgets import QMessageBox
+
 from graph import *
 from PySide2 import QtCore, QtGui, QtWidgets
 from Entrant import *
@@ -8,15 +10,25 @@ from List import *
 
 
 # хрнаим в списке список всех абитуриентов
-list_entrant = List()
+list_entrant = []
 
 def append_entrant():
+    """Считывает данные из полей, добавляет в список и очищает поля"""
+    try:
+        list_entrant.append(Entrant(ui.line_surname.text(), ui.line_name.text(), ui.line_patronymic.text(),
+                    ui.date_of_birth.date(), ui.line_passport.text(), ui.line_diplom.text(),
+                    ui.check_gold_diplom.checkState(), ui.check_GTO.checkState(), ui.line_russian.text(),
+                    ui.line_math.text(), ui.line_informatics.text(), ui.check_diplom.checkState(),
+                    ui.check_consent.checkState(), ui.check_hostel.checkState()))
 
-    list_entrant.append(Entrant(ui.line_surname.text(), ui.line_name.text(), ui.line_patronymic.text(),
-                ui.date_of_birth.date(), ui.line_passport.text(), ui.line_diplom.text(),
-                ui.check_gold_diplom.checkState(), ui.check_GTO.checkState(), ui.line_russian.text(),
-                ui.line_math.text(), ui.line_informatics.text(), ui.check_diplom.checkState(),
-                ui.check_consent.checkState(), ui.check_hostel.checkState()))
+        display_list(list_entrant)
+    except Exception:
+        mess = QMessageBox()
+        mess.setText("Ошибка ввода!")
+        mess.setWindowTitle("Ошибка")
+        mess.exec_()
+
+
 
     ui.line_surname.clear()
     ui.line_name.clear()
@@ -32,6 +44,74 @@ def append_entrant():
     ui.check_diplom.setChecked(False)
     ui.check_consent.setChecked(False)
     ui.check_hostel.setChecked(False)
+
+
+def getStringEntarnt(entrant):
+    """Получает на вход абитуриента, выдает строку, нормализованную для вывода"""
+    strE = ""   # в нее собирается информация
+
+    # будем дописывать пробелы, что бы конечный список был ровным
+
+    # ФИО
+    fio = entrant.getFio()
+    while len(fio) < 25:
+        fio += " "
+    strE += fio
+
+    # сумма баллов за экзамен
+    ball = str(entrant.getSumExam())
+    while len(ball) < 10:
+        ball += " "
+    strE += ball
+
+    # золтая медаль
+    if entrant.getGoldDiploma():
+        gold = "Да"
+    else:
+        gold = "Нет"
+    while len(gold) < 10:
+        gold += " "
+    strE += gold
+
+    # ГТО
+    if entrant.getGoldGto():
+        gold = "Да"
+    else:
+        gold = "Нет"
+    while len(gold) < 10:
+        gold += " "
+    strE += gold
+
+    # подлинник
+    if entrant.getDiploma():
+        diploma = "Да"
+    else:
+        diploma = "Нет"
+    while len(diploma) < 10:
+        diploma += " "
+    strE += diploma
+
+    # согласие на зачисление
+    if entrant.getConsest():
+        consest = "Да"
+    else:
+        consest = "Нет"
+    while len(consest) < 10:
+        consest += " "
+    strE += consest
+
+    return (strE + "\n")
+
+
+def display_list(list):
+    """Напечатает на дисплей список, который в него предается"""
+    strE = ("ФИО                      " + "Баллы     " + "Золото    " + "ГТО       " +
+            "Подлинник " + "Согласие" + "\n\n")
+
+    for e in list:
+        strE += getStringEntarnt(e)
+
+    ui.list_e.setText(strE)
 
 
 if __name__ == "__main__":
@@ -52,6 +132,11 @@ if __name__ == "__main__":
 
     # а вместо даты рождени будет показываться текщая дата
     ui.date_of_birth.setDate(QDate.currentDate())
+
+    # сразу будет показываться структура отображения
+    ui.list_e.setText("ФИО                      " + "Баллы     " + "Золото    " + "ГТО       " +
+            "Подлинник " + "Согласие" + "\n\n")
+
 
 
     # нажатие кнопки Добавить

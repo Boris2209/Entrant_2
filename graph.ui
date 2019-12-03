@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1189</width>
+    <width>1192</width>
     <height>900</height>
    </rect>
   </property>
@@ -22,7 +22,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>500</width>
+      <width>351</width>
       <height>850</height>
      </rect>
     </property>
@@ -300,9 +300,9 @@
     <widget class="QPushButton" name="button_append">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>770</y>
-       <width>151</width>
+       <x>10</x>
+       <y>780</y>
+       <width>331</width>
        <height>61</height>
       </rect>
      </property>
@@ -436,23 +436,32 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>0</y>
-      <width>500</width>
+      <x>380</x>
+      <y>10</y>
+      <width>721</width>
       <height>850</height>
      </rect>
     </property>
     <property name="title">
      <string/>
     </property>
-    <widget class="QTableView" name="tableView">
+    <widget class="QTextEdit" name="list_e">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
-       <width>471</width>
-       <height>531</height>
+       <y>10</y>
+       <width>701</width>
+       <height>611</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Consolas</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -462,7 +471,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1189</width>
+     <width>1192</width>
      <height>21</height>
     </rect>
    </property>

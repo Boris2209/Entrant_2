@@ -3,25 +3,22 @@
 # Form implementation generated from reading ui file 'graph.ui',
 # licensing of 'graph.ui' applies.
 #
-# Created: Wed Nov 27 00:09:46 2019
+# Created: Wed Dec  4 00:28:32 2019
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
 
-
-
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1189, 900)
+        MainWindow.resize(1192, 900)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.group_out_abitur = QtWidgets.QGroupBox(self.centralwidget)
         self.group_out_abitur.setEnabled(True)
-        self.group_out_abitur.setGeometry(QtCore.QRect(10, 10, 500, 850))
+        self.group_out_abitur.setGeometry(QtCore.QRect(10, 10, 351, 850))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.group_out_abitur.setFont(font)
@@ -115,7 +112,7 @@ class Ui_MainWindow(object):
         self.label_birth.setFont(font)
         self.label_birth.setObjectName("label_birth")
         self.button_append = QtWidgets.QPushButton(self.group_out_abitur)
-        self.button_append.setGeometry(QtCore.QRect(330, 770, 151, 61))
+        self.button_append.setGeometry(QtCore.QRect(10, 780, 331, 61))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.button_append.setFont(font)
@@ -144,10 +141,8 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         self.label_inform.setFont(font)
         self.label_inform.setObjectName("label_inform")
-
         self.line_russian = QtWidgets.QLineEdit(self.group_out_abitur)
         self.line_russian.setGeometry(QtCore.QRect(110, 420, 40, 20))
-
         font = QtGui.QFont()
         font.setPointSize(10)
         self.line_russian.setFont(font)
@@ -165,15 +160,20 @@ class Ui_MainWindow(object):
         self.line_informatics.setFont(font)
         self.line_informatics.setObjectName("line_informatics")
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_2.setGeometry(QtCore.QRect(600, 0, 500, 850))
+        self.groupBox_2.setGeometry(QtCore.QRect(380, 10, 721, 850))
         self.groupBox_2.setTitle("")
         self.groupBox_2.setObjectName("groupBox_2")
-        self.tableView = QtWidgets.QTableView(self.groupBox_2)
-        self.tableView.setGeometry(QtCore.QRect(10, 20, 471, 531))
-        self.tableView.setObjectName("tableView")
+        self.list_e = QtWidgets.QTextEdit(self.groupBox_2)
+        self.list_e.setGeometry(QtCore.QRect(10, 10, 701, 611))
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(12)
+        self.list_e.setFont(font)
+        self.list_e.setReadOnly(True)
+        self.list_e.setObjectName("list_e")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1189, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1192, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)

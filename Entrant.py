@@ -20,23 +20,37 @@ class Entrant:
         self.check_hostel = check_hostel
 
 
-    def getSurname(self):
-        return self.surname
+    # возвращает ФИО
+    def getFio(self):
+        return self.surname + " " + self.name[0] + "." + self.patronymic[0] + "."
 
-    def getName(self):
-        return self.name
+    # возвращает наличие золотой медали
+    def getGoldDiploma(self):
+        if self.gold_diploma:
+            return True
+        return False
 
-    def getPatronymic(self):
-        return self.patronymic
+    # возвращает наличие ГТО
+    def getGoldGto(self):
+        if self.gold_gto:
+            return True
+        return False
 
-    def getDate(self):
-        return self.date
+    # возвращает сумму баллов за экзамены
+    def getSumExam(self):
+        return int(self.russian_exam) + int(self.math_exam) + int(self.informatics_exam)
 
-    def getPassport(self):
-        return self.passport
+    # подлинник аттестата
+    def getDiploma(self):
+        if self.check_diploma:
+            return True
+        return False
 
-    def getDiplom(self):
-        return self.diploma
+    # согласие на зачисление
+    def getConsest(self):
+        if self.check_consent:
+            return True
+        return False
 
 
 
