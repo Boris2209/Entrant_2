@@ -114,7 +114,24 @@ def display_list(list):
     ui.list_e.setText(strE)
 
 def sort_list():
-    display_list(sort_abc(list_entrant))
+    # создадим новый список
+    list_entrant_2 = []
+    # если нужны только абитуриенты, допущеные к зачислению
+    if ui.checkBox_entrant.checkState():
+        for e in list_entrant:
+            if e.getDiploma() and e.getConsest():
+                list_entrant_2.append(e)
+
+    else:
+        for e in list_entrant:
+            list_entrant_2.append(e)
+
+    # сортировка по алфавиту
+    if ui.comboBox_sort.currentIndex() is 1:
+        display_list(sort_abc(list_entrant_2))
+    # сортировка по балалм
+    elif ui.comboBox_sort.currentIndex() is 0:
+        display_list(sort_exam(list_entrant_2))
 
 
 if __name__ == "__main__":
