@@ -10,7 +10,7 @@ class Entrant:
         self.date = date                # дата рождения
         self.passport = passport        # даннеы пасспорта
         self.diploma = diploma          # данные аттестата
-        self.gold_diploma = gold_diploma# аттестат с отличием
+        self.gold_diploma = gold_diploma # аттестат с отличием
         self.gold_gto = gold_gto        # гто
         self.russian_exam = russian_exam
         self.math_exam = math_exam
@@ -19,9 +19,10 @@ class Entrant:
         self.check_consent = check_consent
         self.check_hostel = check_hostel
 
-
     # возвращает ФИО
     def getFio(self):
+        if self.patronymic[0] is "-":
+            return self.surname + " " + self.name[0] + "."
         return self.surname + " " + self.name[0] + "." + self.patronymic[0] + "."
 
     # возвращает наличие золотой медали

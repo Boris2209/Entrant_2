@@ -7,6 +7,7 @@ from graph import *
 from PySide2 import QtCore, QtGui, QtWidgets
 from Entrant import *
 from List import *
+from Sort import *
 
 
 # хрнаим в списке список всех абитуриентов
@@ -15,6 +16,7 @@ list_entrant = []
 def append_entrant():
     """Считывает данные из полей, добавляет в список и очищает поля"""
     try:
+
         list_entrant.append(Entrant(ui.line_surname.text(), ui.line_name.text(), ui.line_patronymic.text(),
                     ui.date_of_birth.date(), ui.line_passport.text(), ui.line_diplom.text(),
                     ui.check_gold_diplom.checkState(), ui.check_GTO.checkState(), ui.line_russian.text(),
@@ -23,11 +25,12 @@ def append_entrant():
 
         display_list(list_entrant)
 
-    except Exception:
+    except Exception as e:
         mess = QMessageBox()
         mess.setText("Ошибка ввода!")
         mess.setWindowTitle("Ошибка")
         mess.exec_()
+        print(e)
 
     ui.line_surname.clear()
     ui.line_name.clear()
@@ -110,7 +113,8 @@ def display_list(list):
 
     ui.list_e.setText(strE)
 
-
+def sort_list():
+    display_list(sort_abc(list_entrant))
 
 
 if __name__ == "__main__":
@@ -127,7 +131,7 @@ if __name__ == "__main__":
     # в лчиные данные только символы кириллицы, первая заглавная
     ui.line_surname.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я][а-я]+$')))
     ui.line_name.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я][а-я]+$')))
-    ui.line_patronymic.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я][а-я]+$')))
+    ui.line_patronymic.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я,-][а-я]+$')))
 
     # а вместо даты рождени будет показываться текщая дата
     ui.date_of_birth.setDate(QDate.currentDate())
@@ -137,13 +141,16 @@ if __name__ == "__main__":
             "Подлинник " + "Согласие" + "\n\n")
 
     # инициализация Combo Box (вариант сортировки)
-    ui.comboBox.addItem("Убыванию баллов")
-    ui.comboBox.addItem("Алфавиту")
+    ui.comboBox_sort.addItem("Убыванию баллов")
+    ui.comboBox_sort.addItem("Алфавиту")
 
 
 
     # нажатие кнопки Добавить
     ui.button_append.clicked.connect(append_entrant)
+
+    # нажатие кнопки сортировать
+    ui.pushButton_sort.clicked.connect(sort_list)
 
     MainWindow.show()
     sys.exit(app.exec_())

@@ -473,9 +473,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>670</y>
+       <y>640</y>
        <width>701</width>
-       <height>171</height>
+       <height>201</height>
       </rect>
      </property>
      <property name="title">
@@ -483,7 +483,7 @@
      </property>
      <widget class="QPushButton" name="pushButton_sort">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -499,7 +499,7 @@
      </widget>
      <widget class="QComboBox" name="comboBox_sort">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -517,7 +517,7 @@
      </widget>
      <widget class="QCheckBox" name="checkBox_entrant">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -538,7 +538,7 @@
      </widget>
      <widget class="QLabel" name="label_sort">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -557,24 +557,6 @@
        <string>Сортировать по:</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_sort">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>630</y>
-       <width>221</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Включить сортировку</string>
-     </property>
     </widget>
    </widget>
   </widget>
