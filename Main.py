@@ -22,13 +22,12 @@ def append_entrant():
                     ui.check_consent.checkState(), ui.check_hostel.checkState()))
 
         display_list(list_entrant)
+
     except Exception:
         mess = QMessageBox()
         mess.setText("Ошибка ввода!")
         mess.setWindowTitle("Ошибка")
         mess.exec_()
-
-
 
     ui.line_surname.clear()
     ui.line_name.clear()
@@ -44,7 +43,6 @@ def append_entrant():
     ui.check_diplom.setChecked(False)
     ui.check_consent.setChecked(False)
     ui.check_hostel.setChecked(False)
-
 
 def getStringEntarnt(entrant):
     """Получает на вход абитуриента, выдает строку, нормализованную для вывода"""
@@ -102,7 +100,6 @@ def getStringEntarnt(entrant):
 
     return (strE + "\n")
 
-
 def display_list(list):
     """Напечатает на дисплей список, который в него предается"""
     strE = ("ФИО                      " + "Баллы     " + "Золото    " + "ГТО       " +
@@ -112,6 +109,8 @@ def display_list(list):
         strE += getStringEntarnt(e)
 
     ui.list_e.setText(strE)
+
+
 
 
 if __name__ == "__main__":
@@ -136,6 +135,10 @@ if __name__ == "__main__":
     # сразу будет показываться структура отображения
     ui.list_e.setText("ФИО                      " + "Баллы     " + "Золото    " + "ГТО       " +
             "Подлинник " + "Согласие" + "\n\n")
+
+    # инициализация Combo Box (вариант сортировки)
+    ui.comboBox.addItem("Убыванию баллов")
+    ui.comboBox.addItem("Алфавиту")
 
 
 

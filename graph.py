@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'graph.ui',
 # licensing of 'graph.ui' applies.
 #
-# Created: Wed Dec  4 00:28:32 2019
+# Created: Wed Dec  4 20:30:44 2019
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -161,6 +161,9 @@ class Ui_MainWindow(object):
         self.line_informatics.setObjectName("line_informatics")
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_2.setGeometry(QtCore.QRect(380, 10, 721, 850))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.groupBox_2.setFont(font)
         self.groupBox_2.setTitle("")
         self.groupBox_2.setObjectName("groupBox_2")
         self.list_e = QtWidgets.QTextEdit(self.groupBox_2)
@@ -171,6 +174,27 @@ class Ui_MainWindow(object):
         self.list_e.setFont(font)
         self.list_e.setReadOnly(True)
         self.list_e.setObjectName("list_e")
+        self.comboBox = QtWidgets.QComboBox(self.groupBox_2)
+        self.comboBox.setGeometry(QtCore.QRect(150, 640, 181, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.comboBox.setFont(font)
+        self.comboBox.setObjectName("comboBox")
+        self.label = QtWidgets.QLabel(self.groupBox_2)
+        self.label.setGeometry(QtCore.QRect(20, 640, 131, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.checkBox_entrant = QtWidgets.QCheckBox(self.groupBox_2)
+        self.checkBox_entrant.setGeometry(QtCore.QRect(440, 640, 271, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.checkBox_entrant.setFont(font)
+        self.checkBox_entrant.setObjectName("checkBox_entrant")
+        self.pushButton_sort = QtWidgets.QPushButton(self.groupBox_2)
+        self.pushButton_sort.setGeometry(QtCore.QRect(564, 682, 121, 31))
+        self.pushButton_sort.setObjectName("pushButton_sort")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1192, 21))
@@ -201,4 +225,7 @@ class Ui_MainWindow(object):
         self.label_russian.setText(QtWidgets.QApplication.translate("MainWindow", "Русский язык:", None, -1))
         self.label_math.setText(QtWidgets.QApplication.translate("MainWindow", "Математика:", None, -1))
         self.label_inform.setText(QtWidgets.QApplication.translate("MainWindow", "Информатика:", None, -1))
+        self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Сортировать по:", None, -1))
+        self.checkBox_entrant.setText(QtWidgets.QApplication.translate("MainWindow", "Рассматривается к зачислению", None, -1))
+        self.pushButton_sort.setText(QtWidgets.QApplication.translate("MainWindow", "Сортировать", None, -1))
 
