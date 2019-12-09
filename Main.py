@@ -7,10 +7,12 @@ from PySide2 import QtCore, QtGui, QtWidgets
 from Entrant import *
 from List import *
 from Sort import *
+from ToFile import *
 
 
 # хрнаим в списке список всех абитуриентов
 list_entrant = []
+
 
 def append_entrant():
     """Считывает данные из полей, добавляет в список и очищает поля"""
@@ -45,6 +47,7 @@ def append_entrant():
     ui.check_diplom.setChecked(False)
     ui.check_consent.setChecked(False)
     ui.check_hostel.setChecked(False)
+
 
 def getStringEntarnt(entrant):
     """Получает на вход абитуриента, выдает строку, нормализованную для вывода"""
@@ -102,6 +105,7 @@ def getStringEntarnt(entrant):
 
     return (strE + "\n")
 
+
 def display_list(list):
     """Напечатает на дисплей список, который в него предается"""
     strE = ("ФИО                      " + "Баллы     " + "Золото    " + "ГТО       " +
@@ -111,6 +115,7 @@ def display_list(list):
         strE += getStringEntarnt(e)
 
     ui.list_e.setText(strE)
+
 
 def sort_list():
     # создадим новый список
@@ -132,6 +137,9 @@ def sort_list():
     elif ui.comboBox_sort.currentIndex() is 0:
         display_list(sort_exam(list_entrant_2))
 
+
+def in_file():
+    encode_to_file(list_entrant, "url")
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
@@ -160,13 +168,14 @@ if __name__ == "__main__":
     ui.comboBox_sort.addItem("Убыванию баллов")
     ui.comboBox_sort.addItem("Алфавиту")
 
-
-
     # нажатие кнопки Добавить
     ui.button_append.clicked.connect(append_entrant)
 
     # нажатие кнопки сортировать
     ui.pushButton_sort.clicked.connect(sort_list)
+
+    # нажатие кнопки Загрузить в файл
+    ui.button_file_in.clicked.connect(in_file)
 
     MainWindow.show()
     sys.exit(app.exec_())
