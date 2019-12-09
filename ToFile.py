@@ -42,9 +42,9 @@ def encode_to_file(list_entrant, url):
             str_entrant += "0|"
 
         if entrant.check_hostel:
-            str_entrant += "1\n"
+            str_entrant += "1*"
         else:
-            str_entrant += "0\n"
+            str_entrant += "0*"
 
     code = huffman_encode(str_entrant)  # получаем словарь символ  :код
     str_code = "".join(code[ch] for ch in str_entrant)  # закодированная строка
@@ -71,7 +71,7 @@ def encode_to_file(list_entrant, url):
 
 
 def decode_to_file(url):
-    try:
+    #try:
         # полчуим ключ (словарь исмволов)
         with open('data.pickle', 'rb') as f:
             code = pickle.load(f)
@@ -80,9 +80,10 @@ def decode_to_file(url):
 
         # полчуим закодированную строку
         fil = open('test.txt', 'rb')
-        str_code = fil.read()
+        str_code = fil.read().decode("utf-8")
         fil.close()
 
+        str_code = str_code[0:-1]
         print(str_code)
 
         str_entrant = huffman_decode(str_code, code)    # раскодируем строку
@@ -91,19 +92,27 @@ def decode_to_file(url):
 
         list_entrant = []   # список абитуриентов
 
-        str_entrant.split('\n')  # делим строку по абитуриенту
+        str_entrant_list = []
+        str_entrant_list = str_entrant.split("*")  # делим строку по абитуриенту
+
+
+
+        print(str_entrant_list)
 
         # циклом разбираем
-        for entrant in str_entrant:
-            entrant.split('|')
-            list_entrant.append(Entrant(entrant[0], entrant[1], entrant[2], entrant[3],
-                                        entrant[4], entrant[5], entrant[6], entrant[7],
-                                        entrant[8], entrant[9], entrant[10], entrant[11],
-                                        entrant[12], entrant[13]))
+        for entrant in str_entrant_list:
+
+            entrant_list = []
+            entrant_list = entrant.split("|")
+            print(entrant_list)
+            list_entrant.append(Entrant(entrant_list[0], entrant_list[1], entrant_list[2], entrant_list[3],
+                                        entrant_list[4], entrant_list[5], entrant_list[6], entrant_list[7],
+                                        entrant_list[8], entrant_list[9], entrant_list[10], entrant_list[11],
+                                        entrant_list[12], entrant_list[13]))
 
         return list_entrant
-    except Exception:
-        mess = QMessageBox()
-        mess.setText("Ошибка чтения!")
-        mess.setWindowTitle("Ошибка")
-        mess.exec_()
+    #xcept Exception:
+       # mess = QMessageBox()
+       #mess.setText("Ошибка чтения!")
+        #mess.setWindowTitle("Ошибка")
+        #mess.exec_()

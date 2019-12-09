@@ -56,16 +56,21 @@ def huffman_decode(encoded, code):  # функция декодирования 
                 break
     return "".join(sx)  # вернем значение раскодированной строки
 
-# def main():
-#    s = input()  # читаем строку длиной  до 10**4
-#    code = huffman_encode(s)  # кодируем строку
-#    encoded = "".join(code[ch] for ch in s)  # отобразим закодированную версию, отобразив каждый символ
-#                                             # в соответствующий код и конкатенируем результат
-#    print(len(code), len(encoded))  # выведем число символов и длину закодированной строки
-#    for ch in sorted(code): # обойдем символы в словаре в алфавитном порядке с помощью функции sorted()
-#        print("{}: {}".format(ch, code[ch]))  # выведем символ и соответствующий ему код
-#    print(encoded)  # выведем закодированную строку
-#
-#
-# if __name__ == "__main__":
-#    main()
+def test(n_iter=100):  # добавим тест для проверки алгоритма
+    import random  # нам понадобится генератор случайных чисел
+    import string  # модуль для работы со строками, чтобы получить значения символов по их коду
+
+    # сгененрируем строку из ascii-символов
+    for i in range(n_iter):  # тест включает краевые случаи с пустой строкой и строкой из 1 символа
+        length = random.randint(0, 32)  # сгеренируем код символа
+        s = "".join(random.choice(string.ascii_letters) for _ in range(length)) # получим символ по коду и добавим к строке
+        code = huffman_encode(s)  # выполним кодирование строки
+        encoded = "".join(code[ch] for ch in s)  # получим закодированную строку
+        assert huffman_decode(encoded, code) == s  # раскодируем строку и сравним ее с исходной строкой
+        print(huffman_decode(encoded, code) + "\n" + s)
+
+def main():
+  test()
+
+if __name__ == "__main__":
+   main()
