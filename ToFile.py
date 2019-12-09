@@ -1,6 +1,7 @@
 from Huffman import *
 from PySide2.QtWidgets import QMessageBox
 import pickle
+from Entrant import *
 
 
 def encode_to_file(list_entrant, url):
@@ -50,7 +51,7 @@ def encode_to_file(list_entrant, url):
 
     try:
         # файл с кодом
-        fil = open('text.txt', 'wt')
+        fil = open('test.txt', 'wt')
         fil.write(str_code)
         fil.close()
 
@@ -68,3 +69,41 @@ def encode_to_file(list_entrant, url):
         mess.setWindowTitle("Ошибка")
         mess.exec_()
 
+
+def decode_to_file(url):
+    try:
+        # полчуим ключ (словарь исмволов)
+        with open('data.pickle', 'rb') as f:
+            code = pickle.load(f)
+
+        print(code)
+
+        # полчуим закодированную строку
+        fil = open('test.txt', 'rb')
+        str_code = fil.read()
+        fil.close()
+
+        print(str_code)
+
+        str_entrant = huffman_decode(str_code, code)    # раскодируем строку
+
+        print(str_entrant)
+
+        list_entrant = []   # список абитуриентов
+
+        str_entrant.split('\n')  # делим строку по абитуриенту
+
+        # циклом разбираем
+        for entrant in str_entrant:
+            entrant.split('|')
+            list_entrant.append(Entrant(entrant[0], entrant[1], entrant[2], entrant[3],
+                                        entrant[4], entrant[5], entrant[6], entrant[7],
+                                        entrant[8], entrant[9], entrant[10], entrant[11],
+                                        entrant[12], entrant[13]))
+
+        return list_entrant
+    except Exception:
+        mess = QMessageBox()
+        mess.setText("Ошибка чтения!")
+        mess.setWindowTitle("Ошибка")
+        mess.exec_()

@@ -141,6 +141,9 @@ def sort_list():
 def in_file():
     encode_to_file(list_entrant, "url")
 
+def out_file():
+    display_list(decode_to_file("url"))
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
@@ -176,6 +179,9 @@ if __name__ == "__main__":
 
     # нажатие кнопки Загрузить в файл
     ui.button_file_in.clicked.connect(in_file)
+
+    # нажатие кнопки Загрузить из файла
+    ui.button_file_out.clicked.connect(out_file)
 
     MainWindow.show()
     sys.exit(app.exec_())
