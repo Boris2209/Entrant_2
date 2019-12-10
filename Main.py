@@ -14,25 +14,7 @@ from ToFile import *
 list_entrant = []
 
 
-def append_entrant():
-    """Считывает данные из полей, добавляет в список и очищает поля"""
-    try:
-
-        list_entrant.append(Entrant(ui.line_surname.text(), ui.line_name.text(), ui.line_patronymic.text(),
-                    ui.date_of_birth.date(), ui.line_passport.text(), ui.line_diplom.text(),
-                    ui.check_gold_diplom.checkState(), ui.check_GTO.checkState(), ui.line_russian.text(),
-                    ui.line_math.text(), ui.line_informatics.text(), ui.check_diplom.checkState(),
-                    ui.check_consent.checkState(), ui.check_hostel.checkState()))
-
-        display_list(list_entrant)
-
-    except Exception as e:
-        mess = QMessageBox()
-        mess.setText("Ошибка ввода!")
-        mess.setWindowTitle("Ошибка")
-        mess.exec_()
-        print(e)
-
+def clear_lines():
     ui.line_surname.clear()
     ui.line_name.clear()
     ui.line_patronymic.clear()
@@ -47,6 +29,28 @@ def append_entrant():
     ui.check_diplom.setChecked(False)
     ui.check_consent.setChecked(False)
     ui.check_hostel.setChecked(False)
+
+
+def append_entrant():
+    """Считывает данные из полей, добавляет в список и очищает поля"""
+    try:
+
+        list_entrant.append(Entrant(ui.line_surname.text(), ui.line_name.text(), ui.line_patronymic.text(),
+                    ui.date_of_birth.date(), ui.line_passport.text(), ui.line_diplom.text(),
+                    ui.check_gold_diplom.checkState(), ui.check_GTO.checkState(), ui.line_russian.text(),
+                    ui.line_math.text(), ui.line_informatics.text(), ui.check_diplom.checkState(),
+                    ui.check_consent.checkState(), ui.check_hostel.checkState()))
+
+        display_list(list_entrant)
+
+        clear_lines()
+
+    except Exception as e:
+        mess = QMessageBox()
+        mess.setText("Ошибка ввода!")
+        mess.setWindowTitle("Ошибка")
+        mess.exec_()
+        print(e)
 
 
 def getStringEntarnt(entrant):
@@ -141,8 +145,16 @@ def sort_list():
 def in_file():
     encode_to_file(list_entrant, "url")
 
+
 def out_file():
     display_list(decode_to_file("url"))
+
+
+def delete_list():
+    list_entrant.clear()
+    display_list(list_entrant)
+    clear_lines()
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
@@ -164,8 +176,7 @@ if __name__ == "__main__":
     ui.date_of_birth.setDate(QDate.currentDate())
 
     # сразу будет показываться структура отображения
-    ui.list_e.setText("ФИО                      " + "Баллы     " + "Золото    " + "ГТО       " +
-            "Подлинник " + "Согласие" + "\n\n")
+    display_list(list_entrant)
 
     # инициализация Combo Box (вариант сортировки)
     ui.comboBox_sort.addItem("Убыванию баллов")
@@ -182,6 +193,9 @@ if __name__ == "__main__":
 
     # нажатие кнопки Загрузить из файла
     ui.button_file_out.clicked.connect(out_file)
+
+    # нажатие кнопки очистить список
+    ui.button_delete.clicked.connect(delete_list)
 
     MainWindow.show()
     sys.exit(app.exec_())

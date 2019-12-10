@@ -478,6 +478,11 @@
        <height>201</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
      <property name="title">
       <string/>
      </property>
@@ -512,6 +517,7 @@
       <property name="font">
        <font>
         <pointsize>12</pointsize>
+        <strikeout>false</strikeout>
        </font>
       </property>
      </widget>
@@ -530,6 +536,7 @@
       <property name="font">
        <font>
         <pointsize>12</pointsize>
+        <strikeout>false</strikeout>
        </font>
       </property>
       <property name="text">
@@ -551,10 +558,24 @@
       <property name="font">
        <font>
         <pointsize>12</pointsize>
+        <strikeout>false</strikeout>
        </font>
       </property>
       <property name="text">
        <string>Сортировать по:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_delete">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>150</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Очистить список</string>
       </property>
      </widget>
     </widget>
@@ -684,6 +705,72 @@
      </property>
      <property name="text">
       <string>Закодировать</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_URL_code">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>160</y>
+       <width>301</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="line_name_list">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>50</y>
+       <width>301</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>10</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Имя файла списка</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>110</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Куда сохранить</string>
      </property>
     </widget>
    </widget>
