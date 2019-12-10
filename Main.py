@@ -72,7 +72,7 @@ def getStringEntarnt(entrant):
     strE += ball
 
     # золтая медаль
-    if entrant.getGoldDiploma():
+    if entrant.gold_diploma:
         gold = "Да"
     else:
         gold = "Нет"
@@ -81,7 +81,7 @@ def getStringEntarnt(entrant):
     strE += gold
 
     # ГТО
-    if entrant.getGoldGto():
+    if entrant.gold_gto:
         gold = "Да"
     else:
         gold = "Нет"
@@ -90,7 +90,7 @@ def getStringEntarnt(entrant):
     strE += gold
 
     # подлинник
-    if entrant.getDiploma():
+    if entrant.check_diploma:
         diploma = "Да"
     else:
         diploma = "Нет"
@@ -99,7 +99,7 @@ def getStringEntarnt(entrant):
     strE += diploma
 
     # согласие на зачисление
-    if entrant.getConsest():
+    if entrant.check_consent:
         consest = "Да"
     else:
         consest = "Нет"
@@ -127,7 +127,7 @@ def sort_list():
     # если нужны только абитуриенты, допущеные к зачислению
     if ui.checkBox_entrant.checkState():
         for e in list_entrant:
-            if e.getDiploma() and e.getConsest():
+            if e.check_diploma and e.check_consent:
                 list_entrant_2.append(e)
 
     else:
@@ -143,11 +143,13 @@ def sort_list():
 
 
 def in_file():
-    encode_to_file(list_entrant, "url")
+    encode_to_file(list_entrant)
 
 
 def out_file():
-    display_list(decode_to_file("url"))
+    global list_entrant
+    list_entrant = decode_to_file()
+    display_list(list_entrant)
 
 
 def delete_list():

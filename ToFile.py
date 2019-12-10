@@ -4,7 +4,7 @@ import pickle
 from Entrant import *
 
 
-def encode_to_file(list_entrant, url):
+def encode_to_file(list_entrant):
     # необходимо список абитуриентов преобраховать к строке
     # символ | будет разделять поля, а символ \n абитуриентов
     str_entrant = ""
@@ -51,12 +51,12 @@ def encode_to_file(list_entrant, url):
 
     try:
         # файл с кодом
-        fil = open('test.txt', 'wt')
+        fil = open('text.txt', 'wt')
         fil.write(str_code)
         fil.close()
 
         # файл с ключом (словарем символов)
-        with open('data.pickle', 'wb') as f:
+        with open('key.pickle', 'wb') as f:
             pickle.dump(code, f)
 
         mes = QMessageBox()
@@ -70,21 +70,18 @@ def encode_to_file(list_entrant, url):
         mess.exec_()
 
 
-def decode_to_file(url):
+def decode_to_file():
     try:
         # полчуим ключ (словарь исмволов)
-        with open('data.pickle', 'rb') as f:
+        with open('key.pickle', 'rb') as f:
             code = pickle.load(f)
 
-        print(code)
-
         # полчуим закодированную строку
-        fil = open('test.txt', 'rb')
+        fil = open('text.txt', 'rb')
         str_code = fil.read().decode("utf-8")
         fil.close()
 
         str_code = str_code[0:-1]
-        print(str_code)
 
         str_entrant = huffman_decode(str_code, code)    # раскодируем строку
 
