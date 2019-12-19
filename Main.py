@@ -5,7 +5,6 @@ from PySide2.QtWidgets import QMessageBox
 from graph import *
 from PySide2 import QtCore, QtGui, QtWidgets
 from Entrant import *
-from List import *
 from Sort import *
 from ToFile import *
 
@@ -172,7 +171,7 @@ if __name__ == "__main__":
     # в лчиные данные только символы кириллицы, первая заглавная
     ui.line_surname.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я][а-я]+$')))
     ui.line_name.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я][а-я]+$')))
-    ui.line_patronymic.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я,-][а-я]+$')))
+    ui.line_patronymic.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('(-)|(^[А-Я][а-я]+$)')))
 
     # а вместо даты рождени будет показываться текщая дата
     ui.date_of_birth.setDate(QDate.currentDate())
