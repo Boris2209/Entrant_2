@@ -164,9 +164,9 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
 
     # установим условие, что бы можно было ввести только числа 0-100 в поля результатов экзаменов
-    ui.line_russian.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('(100)|(0*\d{1,2})')))
-    ui.line_math.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('(100)|(0*\d{1,2})')))
-    ui.line_informatics.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('(100)|(0*\d{1,2})')))
+    ui.line_russian.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('(100)|(\d{1,2})')))
+    ui.line_math.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('(100)|(\d{1,2})')))
+    ui.line_informatics.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('(100)|(\d{1,2})')))
 
     # в лчиные данные только символы кириллицы, первая заглавная
     ui.line_surname.setValidator(QtGui.QRegExpValidator(QtCore.QRegExp('^[А-Я][а-я]+$')))
